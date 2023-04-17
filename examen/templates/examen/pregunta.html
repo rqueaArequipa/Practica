@@ -1,0 +1,17 @@
+<h1>Examen de Django</h1>
+<form action="{% url 'examen:result' %}" method="POST">
+    {% csrf_token %}
+    <ul>
+        {% for pregunta in pregunta %}
+        <li>{{pregunta.pregunta_txt}}
+            <ul>
+                {% for opcion in pregunta.opcion_set.all %}
+                <li><input type="radio" name="opcion_{{pregunta.id}}" value="{{opcion.punto}}">
+                    {{opcion.opcion_txt}}</li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+    <input type="submit" value="Enviar">
+</form>

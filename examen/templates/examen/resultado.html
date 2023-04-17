@@ -1,0 +1,13 @@
+<h1>Resultado</h1>
+<p>Tu puntaje es {{ nota }}</p>
+
+<form action="{% url 'examen:list' %}" method="POST">
+    {% csrf_token %}
+    <input type="number" value="{{ nota }}" name="nota" hidden>
+    <label for="">Registre sus Datos de Alumno</label><br>
+    <label for="">Nombre: </label>
+    <input type="text" name="nombre"><br>
+    <label for="">Email: </label>
+    <input type="email" name="email"><br>
+    <input type="submit" value="REGISTRAR NOTA DEL ALUMNO">
+</form>

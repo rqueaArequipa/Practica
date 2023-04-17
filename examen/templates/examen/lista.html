@@ -1,0 +1,21 @@
+<h1>Tabla de Posiciones</h1>
+<table style="border: 1px solid black;">
+    <thead>
+        <tr >
+            <th style="border: 1px solid black;">#</th>
+            <th style="border: 1px solid black;">Alumno</th>
+            <th style="border: 1px solid black;">Nota</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for alumno in alumno %}
+        <tr>
+            <td style="border: 1px solid black;">{{alumno.id}}</td>
+            <td style="border: 1px solid black;">{{ alumno.nombre }}</td>
+            {% for nota in alumno.nota_set.all %}
+            <td style="border: 1px solid black;">{{nota.nota}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
